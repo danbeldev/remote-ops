@@ -1,0 +1,23 @@
+[windows.post]
+shutdown = "shutdown /s /t 1"
+reboot = "shutdown /r /t 1"
+sleep = "shutdown /h"
+
+[windows.get]
+os-name = "cmd.exe /c echo %OS%"
+
+[macos.post]
+shutdown = "sudo shutdown -h now"
+reboot = "sudo shutdown -r now"
+sleep = "pmset sleepnow"
+
+[macos.get]
+os-name = "uname -s"
+
+[linux.post]
+shutdown = "sudo shutdown -h now"
+reboot = "sudo reboot"
+sleep = "systemctl suspend"
+
+[linux.get]
+os-name = "uname -s"

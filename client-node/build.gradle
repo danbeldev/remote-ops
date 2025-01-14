@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.4.1'
-    id 'io.spring.dependency-management' version '1.1.7'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.0'
 }
 
 group = 'com.client.node'
@@ -23,12 +23,33 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClassName = 'com.client.node.ClientNodeApplication'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.client.node.ClientNodeApplication'
+        )
+    }
+}
+
+shadowJar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.client.node.ClientNodeApplication'
+        )
+    }
+}
+
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    implementation("io.javalin:javalin:6.4.0")
+    implementation("org.slf4j:slf4j-simple:2.0.16")
+    implementation("com.moandjiezana.toml:toml4j:0.7.2")
 }
 
 tasks.named('test') {
