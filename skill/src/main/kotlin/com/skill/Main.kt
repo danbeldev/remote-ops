@@ -2,6 +2,7 @@ package com.skill
 
 import com.github.alice.ktx.dispatch
 import com.github.alice.ktx.handlers.impl.message
+import com.github.alice.ktx.handlers.impl.newSession
 import com.github.alice.ktx.models.response.response
 import com.github.alice.ktx.skill
 import com.github.alice.ktx.webhook.impl.ktorWebhookServer
@@ -22,6 +23,11 @@ fun main() {
             path = "/remote-ops"
         }
         dispatch {
+            newSession {
+                response {
+                    text = "Привет"
+                }
+            }
             message {
                 val response = serverRemoteOps.remoteOps(messageText)
 
