@@ -29,7 +29,7 @@ fun main() {
                 }
             }
             message {
-                val response = serverRemoteOps.remoteOps(messageText)
+                val response = serverRemoteOps.remoteOps(RemoteOpsRequest(message = messageText))
                 println(response.code())
                 println(response.message())
 
