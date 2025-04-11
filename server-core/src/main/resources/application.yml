@@ -1,14 +1,12 @@
 server:
   forward-headers-strategy: framework
+  servlet:
+    context-path: /remote-ops/server-core/
 spring:
   application:
     name: server-core
   config:
     import: optional:file:.env[.properties]
-feign:
-  clients:
-    main:
-      url: ${CLIENT_MAIN_URL}
 
 remote-ops:
   commands:
