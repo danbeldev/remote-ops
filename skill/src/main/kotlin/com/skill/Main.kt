@@ -30,6 +30,8 @@ fun main() {
             }
             message {
                 val response = serverRemoteOps.remoteOps(messageText)
+                println(response.code())
+                println(response.message())
 
                 response {
                     text = if (response.isSuccessful)
