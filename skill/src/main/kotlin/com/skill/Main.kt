@@ -7,6 +7,7 @@ import com.github.alice.ktx.models.response.response
 import com.github.alice.ktx.skill
 import com.github.alice.ktx.webhook.impl.ktorWebhookServer
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 
 private const val SERVER_REMOTE_OPS_BASE_URL = "https://skill.matstart.ru:30/remote-ops/server-core/"
@@ -14,6 +15,7 @@ private const val SERVER_REMOTE_OPS_BASE_URL = "https://skill.matstart.ru:30/rem
 fun main() {
     val serverRemoteOps = Retrofit.Builder()
         .baseUrl(SERVER_REMOTE_OPS_BASE_URL)
+        .addConverterFactory(GsonConverterFactory.create())
         .build()
         .create<ServerRemoteOps>()
 
