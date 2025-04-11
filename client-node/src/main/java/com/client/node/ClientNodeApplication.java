@@ -19,9 +19,9 @@ public class ClientNodeApplication {
 
     private static final String name = "Компьютер";
     private static final String host = "192.168.0.100";
-    private static final Integer port = 7000;
+    private static final Integer port = 9819;
 
-    private static final String serverBaseUrl = "http://192.168.0.104:8184";
+    private static final String serverBaseUrl = "https://skill.matstart.ru:30/";
 
     private static ServerCore serverCore;
 
