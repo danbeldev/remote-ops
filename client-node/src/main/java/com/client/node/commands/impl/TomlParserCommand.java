@@ -20,7 +20,6 @@ public class TomlParserCommand implements ParserCommand {
         var toml = new Toml().read(inputStream);
 
         return new OsCommands(
-                getCommands(toml, os, ".get"),
                 getCommands(toml, os, ".post")
         );
     }

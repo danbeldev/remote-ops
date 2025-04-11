@@ -50,6 +50,8 @@ dependencies {
     implementation("io.javalin:javalin:6.4.0")
     implementation("org.slf4j:slf4j-simple:2.0.16")
     implementation("com.moandjiezana.toml:toml4j:0.7.2")
+
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
 }
 
 tasks.named('test') {

@@ -13,3 +13,9 @@ services:
     restart: "no"
     ports:
       - "7000:7000"
+  skill:
+    image: skill:latest
+    build: skill
+    restart: "no"
+    ports:
+      - "8080:8080"

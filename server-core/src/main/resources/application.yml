@@ -9,3 +9,14 @@ feign:
   clients:
     main:
       url: ${CLIENT_MAIN_URL}
+
+remote-ops:
+  commands:
+    - messages:
+        - "перезагрузить ${name}"
+        - "перезагрузи ${name}"
+      command: "reboot"
+    - messages:
+        - "выключить ${name}"
+        - "выключи ${name}"
+      command: "shutdown"
