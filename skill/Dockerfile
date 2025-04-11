@@ -8,7 +8,7 @@ RUN ./gradlew build --no-daemon
 FROM eclipse-temurin:22-jdk-jammy
 
 WORKDIR /app
-COPY --from=builder /app/build/libs/ktor-server.jar /app/ktor-server.jar
+COPY --from=builder /app/build/libs/ktor-server.jar /app/app.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "ktor-server.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

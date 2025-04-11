@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "2.1.10"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "com.skill"
@@ -22,4 +23,11 @@ tasks.test {
 }
 kotlin {
     jvmToolchain(22)
+}
+
+tasks.withType<Jar> {
+    archiveBaseName.set("remote-ops-skill")
+    manifest {
+        attributes["Main-Class"] = "com.skill.MainKt"
+    }
 }

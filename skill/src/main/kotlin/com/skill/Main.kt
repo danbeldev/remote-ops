@@ -8,7 +8,7 @@ import com.github.alice.ktx.webhook.impl.ktorWebhookServer
 import retrofit2.Retrofit
 import retrofit2.create
 
-private const val SERVER_REMOTE_OPS_BASE_URL = ""
+private const val SERVER_REMOTE_OPS_BASE_URL = "http://server-core/"
 
 fun main() {
     val serverRemoteOps = Retrofit.Builder()
