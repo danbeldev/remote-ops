@@ -19,7 +19,7 @@ fun main() {
     skill {
         webhookServer = ktorWebhookServer {
             port = 8080
-            path = "/"
+            path = "/remote-ops"
         }
         dispatch {
             message {
