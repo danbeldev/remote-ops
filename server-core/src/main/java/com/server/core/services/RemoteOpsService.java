@@ -14,6 +14,7 @@ public class RemoteOpsService {
 
     public void remoteOps(String message) {
         var nodeNames = managementClientNodeService.getNodeNames();
+        System.out.println(nodeNames);
 
         for (RemoteOpsConfig.Command command : remoteOpsConfig.getCommands()) {
             for (String messageTemplate : command.getMessages()) {
