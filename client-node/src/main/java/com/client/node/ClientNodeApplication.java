@@ -18,10 +18,10 @@ import java.util.Map;
 public class ClientNodeApplication {
 
     private static final String name = "Компьютер";
-    private static final String host = "127.0.0.1";
+    private static final String host = "192.168.0.100";
     private static final Integer port = 7000;
 
-    private static final String serverBaseUrl = "http://localhost:8080";
+    private static final String serverBaseUrl = "http://192.168.0.104:8184";
 
     private static ServerCore serverCore;
 
