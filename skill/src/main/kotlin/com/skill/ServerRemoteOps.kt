@@ -1,11 +1,13 @@
 package com.skill
 
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.POST
-import retrofit2.http.Query
+
+data class RemoteOpsRequest(val message: String)
 
 interface ServerRemoteOps {
 
     @POST("/remote-ops")
-    suspend fun remoteOps(@Query("message") message: String): Response<Unit?>
+    suspend fun remoteOps(@Body body: RemoteOpsRequest): Response<Unit?>
 }
