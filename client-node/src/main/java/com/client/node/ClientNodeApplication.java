@@ -18,7 +18,7 @@ import java.util.Map;
 public class ClientNodeApplication {
 
     private static final String name = "Компьютер";
-    private static final String host = "192.168.0.100";
+    private static final String host = "localhost";
     private static final Integer port = 11301;
 
     private static final String serverBaseUrl = "https://skill.matstart.ru:30/remote-ops/server-core/";
@@ -78,6 +78,7 @@ public class ClientNodeApplication {
         serverCore.connect(name, host, port).enqueue(new Callback<>() {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
+                System.out.println(response.code());
                 runnable.run();
             }
 
