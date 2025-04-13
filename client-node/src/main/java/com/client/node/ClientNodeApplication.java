@@ -119,7 +119,11 @@ public class ClientNodeApplication {
             @Override
             public void onResponse(@NotNull Call<Void> call, @NotNull Response<Void> response) {
                 logger.info("Server connection response: {}", response.code());
-                onSuccess.run();
+                if (response.isSuccessful()) {
+                    onSuccess.run();
+                }else {
+                    System.exit(1);
+                }
             }
 
             @Override

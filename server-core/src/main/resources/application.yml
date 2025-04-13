@@ -13,8 +13,81 @@ remote-ops:
     - messages:
         - "перезагрузить ${name}"
         - "перезагрузи ${name}"
+        - "ребут ${name}"
+        - "перезапусти ${name}"
       command: "reboot"
+
     - messages:
         - "выключить ${name}"
         - "выключи ${name}"
+        - "заверши работу ${name}"
+        - "shutdown ${name}"
       command: "shutdown"
+
+    - messages:
+        - "спящий режим ${name}"
+        - "усыпи ${name}"
+        - "режим сна ${name}"
+      command: "sleep"
+
+    - messages:
+        - "воспроизведение ${name}"
+        - "продолжить ${name}"
+        - "play ${name}"
+      command: "play"
+
+    - messages:
+        - "пауза ${name}"
+        - "останови ${name}"
+        - "pause ${name}"
+      command: "pause"
+
+    - messages:
+        - "пауза или воспроизведение ${name}"
+        - "play pause ${name}"
+        - "переключи воспроизведение ${name}"
+      command: "play_pause_toggle"
+
+    - messages:
+        - "громче ${name}"
+        - "увеличь громкость ${name}"
+        - "volume up ${name}"
+      command: "volume_up"
+
+    - messages:
+        - "тише ${name}"
+        - "уменьши громкость ${name}"
+        - "volume down ${name}"
+      command: "volume_down"
+
+    - messages:
+        - "следующий трек ${name}"
+        - "next track ${name}"
+        - "вперёд ${name}"
+      command: "next_track"
+
+    - messages:
+        - "предыдущий трек ${name}"
+        - "previous track ${name}"
+        - "назад ${name}"
+      command: "prev_track"
+
+    - messages:
+        - "поставь на паузу ${name}"
+        - "приостанови ${name}"
+      command: "pause"
+
+    - messages:
+        - "сними паузу ${name}"
+        - "продолжить воспроизведение ${name}"
+      command: "play"
+
+    - messages:
+        - "громкость больше ${name}"
+        - "сделай громче ${name}"
+      command: "volume_up"
+
+    - messages:
+        - "громкость меньше ${name}"
+        - "сделай тише ${name}"
+      command: "volume_down"

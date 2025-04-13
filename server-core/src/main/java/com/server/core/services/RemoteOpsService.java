@@ -4,6 +4,7 @@ import com.server.core.configs.RemoteOpsConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -44,7 +45,7 @@ public class RemoteOpsService {
         clientNodeService.getRegisteredNodeNames().forEach(nodeName -> {
             try {
                 clientNodeService.executeCommandOnNode(command.getCommand(), nodeName);
-            } catch (ClientNodeService.CommandExecutionException e) {
+            } catch (ResponseStatusException e) {
                 log.warn("Failed to execute command '{}' on node '{}'", command.getCommand(), nodeName, e);
             }
         });

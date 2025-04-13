@@ -2,7 +2,9 @@ package com.server.core.services;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Map;
 import java.util.Set;
@@ -51,7 +53,7 @@ public class ClientNodeService {
         try (Response response = httpClient.newCall(request).execute()) {
             handleResponse(response, nodeName, command);
         } catch (Exception e) {
-            throw new CommandExecutionException("Failed to execute command on node: " + nodeName, e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Failed to execute command on node: " + nodeName, e);
         }
     }
 
@@ -72,7 +74,8 @@ public class ClientNodeService {
 
     private void handleResponse(Response response, String nodeName, String command) {
         if (!response.isSuccessful()) {
-            throw new CommandExecutionException(
+            throw new ResponseStatusException(
+                    HttpStatus.INTERNAL_SERVER_ERROR,
                     String.format("Command '%s' failed on node '%s': %d - %s",
                             command, nodeName, response.code(), response.message()));
         }
@@ -81,23 +84,7 @@ public class ClientNodeService {
 
     private void validateNodeExists(String nodeName) {
         if (!nodes.containsKey(nodeName)) {
-            throw new NodeNotFoundException("Node not found: " + nodeName);
-        }
-    }
-
-    public static class CommandExecutionException extends RuntimeException {
-        public CommandExecutionException(String message, Throwable cause) {
-            super(message, cause);
-        }
-
-        public CommandExecutionException(String message) {
-            super(message);
-        }
-    }
-
-    public static class NodeNotFoundException extends RuntimeException {
-        public NodeNotFoundException(String message) {
-            super(message);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Node not found: " + nodeName);
         }
     }
 }
