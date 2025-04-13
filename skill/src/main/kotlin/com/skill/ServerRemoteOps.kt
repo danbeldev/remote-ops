@@ -8,6 +8,6 @@ data class RemoteOpsRequest(val message: String)
 
 interface ServerRemoteOps {
 
-    @POST("remote-ops")
+    @POST("remote-operations")
     suspend fun remoteOps(@Body body: RemoteOpsRequest): Response<Unit?>
 }
