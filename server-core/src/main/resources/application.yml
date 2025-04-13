@@ -1,7 +1,7 @@
 server:
   forward-headers-strategy: framework
   servlet:
-    context-path: /remote-ops/server-core/
+    context-path: /server-core/api/v1/
 spring:
   application:
     name: server-core

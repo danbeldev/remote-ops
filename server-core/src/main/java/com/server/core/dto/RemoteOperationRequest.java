@@ -1,5 +1,5 @@
 package com.server.core.dto;
 
-public record RemoteOpsRequest(
+public record RemoteOperationRequest(
         String message
 ) {}
