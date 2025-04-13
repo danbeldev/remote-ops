@@ -10,7 +10,6 @@ import retrofit2.HttpException
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
-import java.net.URL
 
 object SkillConfig {
     private const val DEFAULT_SERVER_URL = "http://localhost:8184/server-core/api/v1/"
@@ -37,8 +36,6 @@ class RemoteOpsService(private val api: ServerRemoteOps) {
 }
 
 fun createRetrofitClient(baseUrl: String): ServerRemoteOps {
-    require(URL(baseUrl).host.isNotEmpty()) { "Invalid base URL" }
-
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(GsonConverterFactory.create())

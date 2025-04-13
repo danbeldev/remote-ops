@@ -4,7 +4,6 @@ import com.server.core.services.ClientNodeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,10 +26,9 @@ public class ClientNodeController {
     @ResponseStatus(HttpStatus.CREATED)
     public void registerNode(
             @RequestParam String name,
-            HttpServletRequest request
+            @RequestParam String host,
+            @RequestParam Integer port
     ) {
-        String host = request.getRemoteAddr();
-        int port = request.getRemotePort();
         clientNodeService.registerNode(name, host, port);
     }
 
