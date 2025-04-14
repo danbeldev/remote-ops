@@ -14,7 +14,7 @@
 </p>
 
 ## Материалы
-- [Хабр]()
+- [Хабр](https://habr.com/ru/articles/900450/)
 
 ## Лицензия
 Copyright © 2025 [Danila Belyakov](https://github.com/danbeldev) \
